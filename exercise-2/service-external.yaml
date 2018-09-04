@@ -7,3 +7,5 @@ spec:
     - port: 80
   selector:
     app: helloworld
+  externalIPs:
+    - %EXTERNAL_IP%

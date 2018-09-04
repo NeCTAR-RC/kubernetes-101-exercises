@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-deployment
+  labels:
+    app: helloworld
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+        - name: helloworld
+          image: rackspacetraining/helloworld:1.1
+          ports:
+            - name: web
+              containerPort: 80
+          volumeMounts:
+            - name: nfs
+              mountPath: "/mnt/images"
+      volumes:
+        - name: nfs
+          nfs:
+            server: nfs-server.default.svc.cluster.local
+            path: "/exports"

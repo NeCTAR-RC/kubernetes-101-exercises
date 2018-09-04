@@ -6,16 +6,16 @@ metadata:
     app: helloworld
 spec:
   containers:
-  - name: hellworld
-    image: rackspacetraining/helloworld:1.0
-    ports:
-    - name: web
-      containerPort: 80
-    volumeMounts:
-      - name: my-nfs
-        mountPath: "/mnt/images"
+    - name: helloworld
+      image: rackspacetraining/helloworld:1.0
+      ports:
+      - name: web
+        containerPort: 80
+      volumeMounts:
+        - name: nfs
+          mountPath: "/mnt/images"
   volumes:
-    - name: my-nfs
+    - name: nfs
       nfs:
         server: nfs-server.default.svc.cluster.local
         path: "/exports"

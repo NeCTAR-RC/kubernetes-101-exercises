@@ -9,5 +9,5 @@ spec:
     - name: helloworld
       image: rackspacetraining/helloworld:1.0
       ports:
-      - name: web
-        containerPort: 80
+        - name: web
+          containerPort: 80
